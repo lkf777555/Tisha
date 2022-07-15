@@ -1,11 +1,15 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
 
 const routes = [
   {
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'login',
+    component: () => import('../views/login')
+  },
+  {
+    path: '/:cathchAll(.*)',
+    name: '404',
+    component: () => import('../views/404')
   }
 ]
 
