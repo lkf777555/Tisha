@@ -45,9 +45,13 @@ import { reactive, ref } from 'vue'
 import { login } from '../../api/user'
 import { ElMessage } from 'element-plus'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 
 const ruleFormRef = ref()
+
 const store = useStore()
+
+const router = useRouter()
 
 const rules = reactive({
   username: [
@@ -79,6 +83,7 @@ const submitForm = async (ruleFormRef) => {
   if (!ruleFormRef) return
   await ruleFormRef.validate((valid, fields) => {
     if (data.status === 200) {
+      router.push('/')
       ElMessage({
         message: '登录成功',
         type: 'success'
@@ -87,9 +92,6 @@ const submitForm = async (ruleFormRef) => {
     }
   })
 }
-// const submitForm = () => {
-//   login(ruleForm)
-// }
 </script>
 <style lang="scss" scoped>
 .login {

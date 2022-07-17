@@ -1,11 +1,13 @@
+import { setItem, getItem } from '../../utils/storage'
 export default {
   namespaced: true,
   state: {
-    token: ''
+    token: getItem('token') || ''
   },
   mutations: {
     setToken(state, res) {
       state.token = res
+      setItem('token', res)
     }
   },
   actions: {
