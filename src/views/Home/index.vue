@@ -1,7 +1,5 @@
 <template>
-  <div>
-    <router-view></router-view>
-  </div>
+  <div>主控台</div>
 </template>
 
 <script setup></script>

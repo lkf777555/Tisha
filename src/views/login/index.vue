@@ -79,10 +79,10 @@ const ruleForm = reactive({
 
 const submitForm = async (ruleFormRef) => {
   const data = await login(ruleForm)
-  const token = data.data.data.token
+  const token = data.data.token
   if (!ruleFormRef) return
   await ruleFormRef.validate((valid, fields) => {
-    if (data.status === 200) {
+    if (data.msg === 'ok') {
       router.push('/')
       ElMessage({
         message: '登录成功',

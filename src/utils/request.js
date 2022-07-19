@@ -5,8 +5,10 @@ const http = axios.create({
   timeout: 5000
 })
 // 请求拦截器
-axios.interceptors.request.use(
+http.interceptors.request.use(
   function (config) {
+    const token = localStorage.getItem('token')
+    config.headers.token = token
     return config
   },
   function (error) {
@@ -14,7 +16,7 @@ axios.interceptors.request.use(
   }
 )
 // 响应拦截器
-axios.interceptors.response.use(
+http.interceptors.response.use(
   function (response) {
     return response.data
   },

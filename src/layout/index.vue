@@ -22,14 +22,16 @@ import Main from './main'
   height: 64px;
   background: #4338ca;
 }
-.el-aside {
-  width: 250px;
-}
+
 .el-main {
   height: 92vh;
   overflow-x: hidden;
 }
 .el-main::-webkit-scrollbar {
   display: none;
+}
+.el-aside {
+  width: auto;
+  border: none;
 }
 </style>
