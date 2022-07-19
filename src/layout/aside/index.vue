@@ -1,7 +1,7 @@
 <template>
   <div class="aside" :style="{ width: info ? '50px' : '200px' }">
     <el-menu
-      default-active="/"
+      :default-active="$route.path"
       class="el-menu-vertical-demo"
       unique-opened
       :collapse="info"

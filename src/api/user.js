@@ -11,3 +11,9 @@ export const login = (model) => request.post('/admin/login', model)
  * @param {}
  */
 export const meun = () => request.post('/admin/getinfo')
+/**
+ * @method
+ * @description 支付订单接口
+ * @param {}
+ */
+export const order = () => request.get('/admin/statistics1')

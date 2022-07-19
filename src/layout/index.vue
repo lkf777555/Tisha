@@ -26,6 +26,7 @@ import Main from './main'
 .el-main {
   height: 92vh;
   overflow-x: hidden;
+  background: #f3f4f6;
 }
 .el-main::-webkit-scrollbar {
   display: none;

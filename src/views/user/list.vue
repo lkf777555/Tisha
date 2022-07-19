@@ -1,8 +1,8 @@
 <template>
-  <div>user</div>
+  <div><tag></tag></div>
 </template>
 
 <script setup>
+import tag from '../../components/tag.vue'
 </script>
-<style lang='scss' scoped>
-</style>
+<style lang="scss" scoped></style>

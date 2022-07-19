@@ -1,5 +1,6 @@
 <template>
   <div class="header">
+    <!-- 顶部左边部分 -->
     <div class="left">
       <div class="logo">
         <img class="iconimg" src="../../assets/ele.png" alt="" /> 积云编程
@@ -13,6 +14,7 @@
         </div>
       </div>
     </div>
+    <!-- 顶部右边部分 -->
     <div class="right">
       <div class="hoveicon" @click="onToggle" v-if="!isFullscreen">
         <el-icon size="28px"><FullScreen /></el-icon>
@@ -20,7 +22,6 @@
       <div v-else class="hoveicon" @click="onToggle">
         <el-icon size="28px"><Aim /></el-icon>
       </div>
-
       <div>
         <el-dropdown>
           <span class="el-dropdown-link" style="color: white">
@@ -32,7 +33,7 @@
           <template #dropdown>
             <el-dropdown-menu>
               <el-dropdown-item>修改密码</el-dropdown-item>
-              <el-dropdown-item>退出登录</el-dropdown-item>
+              <el-dropdown-item @click="back">退出登录</el-dropdown-item>
             </el-dropdown-menu>
           </template>
         </el-dropdown>
@@ -44,7 +45,7 @@
 <script setup>
 import screenfull from 'screenfull'
 import { ArrowDown, Fold, FullScreen, Aim } from '@element-plus/icons-vue'
-
+import { ElMessage } from 'element-plus'
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useStore } from 'vuex'
@@ -54,10 +55,22 @@ const store = useStore()
 // 是否全屏
 const isFullscreen = ref(false)
 
+// 刷新页面
 const go = () => {
   router.go(0)
 }
 
+// 退出登录
+const back = () => {
+  localStorage.removeItem('token')
+  router.push('/login')
+  ElMessage({
+    message: '退出登录',
+    type: 'success'
+  })
+}
+
+// 折叠烂
 const isDel = () => {
   store.dispatch('login/isColl')
 }
