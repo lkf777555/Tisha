@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import loading from './loading'
 const http = axios.create({
   baseURL: process.env.VUE_APP_BASE_API,
   timeout: 5000
@@ -7,20 +7,24 @@ const http = axios.create({
 // 请求拦截器
 http.interceptors.request.use(
   function (config) {
+    loading.open()
     const token = localStorage.getItem('token')
     config.headers.token = token
     return config
   },
   function (error) {
+    loading.close()
     return Promise.reject(error)
   }
 )
 // 响应拦截器
 http.interceptors.response.use(
   function (response) {
+    loading.close()
     return response.data
   },
   function (error) {
+    loading.close()
     return Promise.reject(error)
   }
 )

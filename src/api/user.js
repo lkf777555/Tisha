@@ -17,3 +17,15 @@ export const meun = () => request.post('/admin/getinfo')
  * @param {}
  */
 export const order = () => request.get('/admin/statistics1')
+/**
+ * @method
+ * @description 店铺信息接口
+ * @param {}
+ */
+export const shop = () => request.get('/admin/statistics2')
+/**
+ * @method
+ * @description 图表接口
+ * @param {}
+ */
+export const getChart = (type) => request.get(`/admin/statistics3?type=${type}`)
