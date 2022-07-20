@@ -218,11 +218,6 @@ const changeChartType = (type) => {
 }
 </script>
 <style lang="scss" scoped>
-.tag {
-  width: 100%;
-  height: 40px;
-  background: white;
-}
 .order {
   width: 332px;
   height: 190px;
