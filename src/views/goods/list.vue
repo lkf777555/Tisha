@@ -31,7 +31,7 @@
                 <div class="tableIist">
                   <div><img :src="scope.row.cover" alt="" /></div>
                   <div class="tableIistRight">
-                    <small>{{ scope.row.desc }}</small>
+                    <small>{{ scope.row.title }}</small>
                     <div>
                       <span style="color: red"
                         >￥{{ scope.row.min_price }}</span
@@ -56,9 +56,17 @@
             </el-table-column>
             <el-table-column prop="discount" label="实际销量" width="120">
             </el-table-column>
-            <el-table-column prop="title" label="商品状态" width="120">
+            <el-table-column prop="status" label="商品状态" width="120">
+              <template #default="scope">
+                <el-tag :type="scope.row.status == 1 ? 'success' : 'danger'">
+                  {{ scope.row.status == 1 ? '上架' : '仓库' }}</el-tag
+                >
+              </template>
             </el-table-column>
-            <el-table-column prop="title" label="审核状态" width="120">
+            <el-table-column prop="ischeck" label="审核状态" width="120">
+              <template #default="scope">
+                <el-tag> {{ scope.row.ischeck }}</el-tag>
+              </template>
             </el-table-column>
             <el-table-column prop="stock" label="总库存" width="120">
             </el-table-column>
@@ -100,6 +108,7 @@ const getTasData = async () => {
   const res = await tabs(activeName.value)
   goodsloading.value = false
   goodList.value = res.data.list
+  console.log(goodList.value)
 }
 // 页面初始调用
 getTasData()
