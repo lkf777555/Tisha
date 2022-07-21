@@ -29,3 +29,9 @@ export const shop = () => request.get('/admin/statistics2')
  * @param {}
  */
 export const getChart = (type) => request.get(`/admin/statistics3?type=${type}`)
+/**
+ * @method
+ * @description 商品管理tabs接口
+ * @param {}
+ */
+export const tabs = (type) => request.get(`/admin/goods/1?tab=${type}`)

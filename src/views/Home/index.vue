@@ -212,6 +212,7 @@ const getChartData = () => {
   })
 }
 getChartData()
+// 点击传递参数图表发生变化
 const changeChartType = (type) => {
   chartType.value = type
   getChartData()

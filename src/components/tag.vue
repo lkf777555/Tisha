@@ -71,13 +71,14 @@ const handleCloseAll = () => {
 <style lang="scss" scoped>
 .tag {
   width: 100%;
-  height: 50px;
+  height: 41px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  background: #ffff;
   .tabBox {
     width: 98%;
-    height: 50px;
+    height: 41px;
   }
 }
 </style>
